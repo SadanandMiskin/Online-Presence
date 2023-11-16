@@ -36,7 +36,7 @@ async function activate(context) {
 async function deactivate() {
   dbconnect();
   try {
-    await onlineModel.findOneAndUpdate({ id: 1, status: 'Writing Code :)' }, { $set: { status: 'Not Writing Code :(' , stat: false} });
+    await onlineModel.findOneAndUpdate({ id: 1, status: 'Writing Code :)' }, { $set: { status: 'Not Writing Code :(' , stat: false, file:''} });
     console.log('Extension deactivated.'); // Log deactivation
   } catch (error) {
     console.error(error);
