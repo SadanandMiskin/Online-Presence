@@ -1,7 +1,6 @@
 # online-presence README
 
-This is the README for your extension "online-presence". After writing up a brief description, we recommend including the following sections.
-
+Extension which allow to show online presence in vscode on webpage by mongo API call.
 ## Features
 
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.

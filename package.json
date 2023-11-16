@@ -1,8 +1,10 @@
 {
   "name": "online-presence",
   "displayName": "Online Presence",
+  "publisher": "SadanandMiskin",
   "description": "",
-  "version": "0.0.1",
+  "repository":"https://github.com/SadanandMiskin/Online-Presence",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.84.0"
   },

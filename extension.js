@@ -4,11 +4,11 @@ const vscode = require('vscode');
 const mongoose = require('mongoose');
 
 
-// const uri = require('./app')
+const uri = require('./app')
 const onlineSchema = mongoose.Schema({
   id: Number,
   status: String,
-  date: Date,
+  stat: Boolean
 },{collection: 'StatusCheck'});
 const onlineModel = mongoose.model('onlineSchema', onlineSchema);
 
@@ -33,7 +33,7 @@ async function activate(context) {
 async function deactivate() {
   dbconnect();
   try {
-    await onlineModel.findOneAndUpdate({ id: 1, status: 'Writing Code :)' }, { $set: { status: 'Not Writing Code :(' } });
+    await onlineModel.findOneAndUpdate({ id: 1, status: 'Writing Code :)' }, { $set: { status: 'Not Writing Code :(' , stat: false} });
     console.log('Extension deactivated.'); // Log deactivation
   } catch (error) {
     console.error(error);
@@ -48,10 +48,10 @@ const clearDb = async () => {
     console.error('Error clearing database:', err);
   }
 };
-
+//
 const dbconnect = async () => {
   try {
-    await mongoose.connect(process.env.uri,
+    await mongoose.connect(uri,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -64,7 +64,7 @@ const dbconnect = async () => {
 
 async function setInitialOnlineStatus() {
 	try {
-	  await onlineModel.create({ id: 1, status: 'Writing Code :)', date:new Date().toISOString() });
+	  await onlineModel.create({ id: 1, status: 'Writing Code :)', stat: true });
 	  console.log('Boom Online'); // Log initial status set
 	} catch (error) {
 	  console.error('Error setting initial online status:', error.message);
