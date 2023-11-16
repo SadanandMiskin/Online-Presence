@@ -8,7 +8,8 @@ const mongoose = require('mongoose');
 const onlineSchema = mongoose.Schema({
   id: Number,
   status: String,
-  stat: Boolean
+  stat: Boolean,
+  file: String
 },{collection: 'StatusCheck'});
 const onlineModel = mongoose.model('onlineSchema', onlineSchema);
 
@@ -24,7 +25,8 @@ async function activate(context) {
 
  
   context.subscriptions.push(
-    vscode.workspace.onDidOpenTextDocument((document) => {
+    vscode.workspace.onDidOpenTextDocument(async (document) => {
+      await onlineModel.findOneAndUpdate({id: 1}, {$set: {file: document.fileName}})
       console.log('Document opened:', document.fileName);
     })
   );
