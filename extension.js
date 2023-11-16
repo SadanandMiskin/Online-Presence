@@ -2,9 +2,9 @@
 // console.log(process.env)
 const vscode = require('vscode');
 const mongoose = require('mongoose');
+const path = require('path')
 
-
-// const uri = require('./app')
+const uri = require('./app')
 const onlineSchema = mongoose.Schema({
   id: Number,
   status: String,
@@ -26,8 +26,9 @@ async function activate(context) {
  
   context.subscriptions.push(
     vscode.workspace.onDidOpenTextDocument(async (document) => {
-      await onlineModel.findOneAndUpdate({id: 1}, {$set: {file: document.fileName}})
-      console.log('Document opened:', document.fileName);
+      const fileName = path.basename(document.fileName);
+      await onlineModel.findOneAndUpdate({id: 1}, {$set: {file: fileName}})
+      console.log('Document opened:', fileName);
     })
   );
 }
