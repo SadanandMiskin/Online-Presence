@@ -4,7 +4,7 @@ const vscode = require('vscode');
 const mongoose = require('mongoose');
 
 
-const uri = require('./app')
+// const uri = require('./app')
 const onlineSchema = mongoose.Schema({
   id: Number,
   status: String,
