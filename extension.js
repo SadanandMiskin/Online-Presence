@@ -70,7 +70,7 @@ async function setInitialOnlineStatus() {
 	  await onlineModel.create({ id: 1, status: 'Updating Code :)', stat: true });
 	  console.log('Boom Online'); // Log initial status set
 	} catch (error) {
-	  console.error('Error setting initial online status:', error.message);
+	  console.error('Error for setting initial online status:', error.message);
 	}
   }
   
