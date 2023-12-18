@@ -20,7 +20,7 @@ async function activate(context) {
   await clearDb();
   console.log('Extension activated.');
   
-  // Your logic for setting the initial online status goes here
+
   setInitialOnlineStatus()
 
  
