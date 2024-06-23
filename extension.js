@@ -36,7 +36,7 @@ async function activate(context) {
 async function deactivate() {
   dbconnect();
   try {
-    await onlineModel.findOneAndUpdate({ id: 1, status: 'Updating Code :)' }, { $set: { status: 'Not coding at the moment' , stat: false, file:''} });
+    await onlineModel.findOneAndUpdate({ id: 1, status: 'Updating File :)' }, { $set: { status: 'Not coding at the moment' , stat: false, file:''} });
     console.log('Extension deactivated.'); // Log deactivation
   } catch (error) {
     console.error(error);
@@ -67,7 +67,7 @@ const dbconnect = async () => {
 
 async function setInitialOnlineStatus() {
 	try {
-	  await onlineModel.create({ id: 1, status: 'Updating Code :)', stat: true });
+	  await onlineModel.create({ id: 1, status: 'Updating File :)', stat: true });
 	  console.log('Boom Online'); // Log initial status set
 	} catch (error) {
 	  console.error('Error setting initial online status:', error.message);

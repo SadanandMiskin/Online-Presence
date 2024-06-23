@@ -1,13 +1,14 @@
 {
   "name": "online-presence",
-  "displayName": "Online Presence",
+  "displayName": "torettzzmiskkkkiiinnnn",
   "publisher": "SadanandMiskin",
   "description": "",
   "repository": "https://github.com/SadanandMiskin/Online-Presence",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "engines": {
     "vscode": "^1.84.0"
   },
+  "private":true,
   "categories": [
     "Other"
   ],
