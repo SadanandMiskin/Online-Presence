@@ -20,7 +20,7 @@ async function activate(context) {
   await clearDb();
   console.log('Extension activated.');
   
-  // Your logic for setting the initial online status goes here
+
   setInitialOnlineStatus()
 
  
@@ -70,10 +70,14 @@ async function setInitialOnlineStatus() {
 	  await onlineModel.create({ id: 1, status: 'Updating File :)', stat: true });
 	  console.log('Boom Online'); // Log initial status set
 	} catch (error) {
-	  console.error('Error setting initial online status:', error.message);
+	  console.error('Error for setting initial online status:', error.message);
 	}
   }
   
+
+
+
+//module exportss
 
 module.exports = {
   activate,
